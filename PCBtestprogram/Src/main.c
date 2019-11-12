@@ -102,15 +102,21 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    HAL_GPIO_TogglePin(LED_ONBOARD_GPIO_Port,LED_ONBOARD_Pin);
+//    HAL_GPIO_TogglePin(LED_ONBOARD_GPIO_Port,LED_ONBOARD_Pin);
 		HAL_GPIO_TogglePin(LED1_GPIO_Port,LED1_Pin);
 		HAL_GPIO_TogglePin(LED2_GPIO_Port,LED2_Pin);
 		HAL_GPIO_TogglePin(LORA_PWR_GPIO_Port,LORA_PWR_Pin);
+		HAL_Delay(100);
 		HAL_GPIO_TogglePin(SENSOR12V_PWR_GPIO_Port,SENSOR12V_PWR_Pin);
+		HAL_Delay(100);
 		HAL_GPIO_TogglePin(SENSOR3V_PWR_GPIO_Port,SENSOR3V_PWR_Pin);
+		HAL_Delay(100);
 		HAL_UART_Transmit(&huart3,(uint8_t*)"fuck",sizeof("fuck") - 1,1000);
 		HAL_UART_Transmit(&huart1,(uint8_t*)"fuck",sizeof("fuck") - 1,1000);
-		HAL_Delay(1000);
+		HAL_Delay(700);
+//		HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON,PWR_STOPENTRY_WFI);
+//		while(1);
+		
 		
     /* USER CODE END WHILE */
 
